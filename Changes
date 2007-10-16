@@ -1,5 +1,8 @@
 Revision history for Perl extension Data::Validate::URI
 
+0.02  20071016
+	- fixed typo in POD.  Thanks to Tadghe Danu.
+
 0.01  20050915
 	- original version
 

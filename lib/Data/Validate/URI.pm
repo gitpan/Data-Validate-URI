@@ -24,7 +24,7 @@ use Data::Validate::Domain;
 
 %EXPORT_TAGS = ();
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 
 # No preloads
@@ -116,7 +116,7 @@ sub new{
 
 =item B<is_uri> - is the value a well-formed uri?
 
-  is_url($value);
+  is_uri($value);
 
 =over 4
 
