@@ -14,11 +14,12 @@ use Data::Validate::URI qw(is_uri);
 
 my $t = ExtUtils::TBone->typical();
 
-$t->begin(19);
+$t->begin(21);
 $t->msg("testing is_uri...");
 
-# valid -  from RFC 3986
+# valid -  from RFC 3986 for the most part
 $t->ok(defined(is_uri('http://localhost/')), 'http://localhost/');
+$t->ok(defined(is_uri('http://example.w3.org/path%20with%20spaces.html')), 'http://example.w3.org/path%20with%20spaces.html');
 $t->ok(defined(is_uri('ftp://ftp.is.co.za/rfc/rfc1808.txt')), 'ftp://ftp.is.co.za/rfc/rfc1808.txt');
 $t->ok(defined(is_uri('ftp://ftp.is.co.za/../../../rfc/rfc1808.txt')), 'ftp://ftp.is.co.za/../../../rfc/rfc1808.txt');
 $t->ok(defined(is_uri('http://www.ietf.org/rfc/rfc2396.txt')), 'http://www.ietf.org/rfc/rfc2396.txt');
@@ -38,7 +39,7 @@ $t->ok(!defined(is_uri('http://<foo>')), 'bad: http://<foo>'); # illegal charact
 $t->ok(!defined(is_uri('://bob/')), 'bad: ://bob/'); # empty schema
 $t->ok(!defined(is_uri('1http://bob')), 'bad: 1http://bob/'); # bad schema
 $t->ok(!defined(is_uri('1http:////foo.html')), 'bad: 1http://bob/'); # bad path
-
+$t->ok(!defined(is_uri('http://example.w3.org/%illegal.html')), 'http://example.w3.org/%illegal.html');
 
 
 # as an object

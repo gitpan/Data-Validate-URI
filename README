@@ -51,7 +51,7 @@ FUNCTIONS
             Returns a Data::Validate::URI object
 
     is_uri - is the value a well-formed uri?
-          is_url($value);
+          is_uri($value);
 
         *Description*
             Returns the untainted URI if the test value appears to be

@@ -24,7 +24,7 @@ use Data::Validate::Domain;
 
 %EXPORT_TAGS = ();
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 
 # No preloads
@@ -157,7 +157,10 @@ sub is_uri{
 	return unless defined($value);
 	
 	# check for illegal characters
-	return if $value =~ /[^a-z0-9\:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,\;\=\.\-\_\~]/i;
+	return if $value =~ /[^a-z0-9\:\/\?\#\[\]\@\!\$\&\'\(\)\*\+\,\;\=\.\-\_\~\%]/i;
+	
+	# check for hex escapes that aren't complete
+	return if $value =~ /%[^0-9a-f]/i;
 	
 	# from RFC 3986
 	my($scheme, $authority, $path, $query, $fragment) = _split_uri($value);

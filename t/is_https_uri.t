@@ -14,7 +14,7 @@ use Data::Validate::URI qw(is_https_uri);
 
 my $t = ExtUtils::TBone->typical();
 
-$t->begin(11);
+$t->begin(12);
 $t->msg("testing is_https_uri...");
 
 # valid
@@ -23,6 +23,7 @@ $t->ok(defined(is_https_uri('https://www.richardsonnen.com')), 'https://www.rich
 $t->ok(defined(is_https_uri('https://www.richardsonnen.com/foo/bar/test.html')), 'https://www.richardsonnen.com/foo/bar/test.html');
 $t->ok(defined(is_https_uri('https://www.richardsonnen.com/?foo=bar')), 'https://www.richardsonnen.com/?foo=bar');
 $t->ok(defined(is_https_uri('https://www.richardsonnen.com:8080/test.html')), 'https://www.richardsonnen.com:8080/test.html');
+$t->ok(defined(is_https_uri('https://example.w3.org/path%20with%20spaces.html')), 'http://example.w3.org/path%20with%20spaces.html');
 
 # invalid
 $t->ok(!defined(is_https_uri('')), "bad: ''");
