@@ -8,6 +8,7 @@ WriteMakefile(
     'AUTHOR'		=>	'Richard Sonnen (sonnen@richardsonnen.com)',
     'PREREQ_PM'		=>	{
     				'Data::Validate::Domain'	=>	0,
+    				'Data::Validate::IP'	=>	0,
     				},
     'dist'		=>	{
     				'COMPRESS'	=>	'gzip -9f',

@@ -7,6 +7,7 @@ require Exporter;
 use AutoLoader 'AUTOLOAD';
 
 use Data::Validate::Domain;
+use Data::Validate::IP;
 
 @ISA = qw(Exporter);
 
@@ -24,7 +25,7 @@ use Data::Validate::Domain;
 
 %EXPORT_TAGS = ();
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 
 # No preloads
@@ -277,7 +278,10 @@ sub is_http_uri{
 	my($port) = $authority =~ /:(\d+)$/;
 	$authority =~ s/:\d+$//;
 	
-	return unless Data::Validate::Domain::is_domain($authority);
+	# modifying this to allow the (discouraged, but still legal) use of IP addresses
+	unless(Data::Validate::Domain::is_domain($authority) || Data::Validate::IP::is_ipv4($authority)){
+		return;
+	}
 	
 	# re-assemble the URL per section 5.3 in RFC 3986
 	my $out = $scheme . ':';

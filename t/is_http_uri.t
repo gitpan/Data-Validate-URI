@@ -14,7 +14,7 @@ use Data::Validate::URI qw(is_http_uri);
 
 my $t = ExtUtils::TBone->typical();
 
-$t->begin(12);
+$t->begin(13);
 $t->msg("testing is_http_uri...");
 
 # valid
@@ -24,6 +24,7 @@ $t->ok(defined(is_http_uri('http://www.richardsonnen.com/foo/bar/test.html')), '
 $t->ok(defined(is_http_uri('http://www.richardsonnen.com/?foo=bar')), 'http://www.richardsonnen.com/?foo=bar');
 $t->ok(defined(is_http_uri('http://www.richardsonnen.com:8080/test.html')), 'http://www.richardsonnen.com:8080/test.html');
 $t->ok(defined(is_http_uri('http://example.w3.org/path%20with%20spaces.html')), 'http://example.w3.org/path%20with%20spaces.html');
+$t->ok(defined(is_http_uri('http://192.168.0.1/')), 'http://192.168.0.1/');
 
 # invalid
 $t->ok(!defined(is_http_uri('')), "bad: ''");
