@@ -1,5 +1,8 @@
 Revision history for Perl extension Data::Validate::URI
 
+0.04  20080408
+	- Checking that hex escapes include two characters.  Thanks to Steve West.
+
 0.04  20071125
 	- Allowing IPs in authority section of http/https URLs
 	

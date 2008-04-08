@@ -25,7 +25,7 @@ use Data::Validate::IP;
 
 %EXPORT_TAGS = ();
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 
 # No preloads
@@ -162,6 +162,7 @@ sub is_uri{
 	
 	# check for hex escapes that aren't complete
 	return if $value =~ /%[^0-9a-f]/i;
+	return if $value =~ /%[0-9a-f](:?[^0-9a-f]|$)/i;
 	
 	# from RFC 3986
 	my($scheme, $authority, $path, $query, $fragment) = _split_uri($value);
