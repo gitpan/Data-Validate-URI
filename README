@@ -152,11 +152,37 @@ FUNCTIONS
             is accessible or 'makes sense' in any meaningful way. It just
             checks that it is formatted correctly.
 
+    is_tel_uri - is the value a well-formed telephone uri?
+          is_tel_uri($value);
+
+        *Description*
+            Specialized version of is_uri() that only likes tel: urls. As a
+            result, it can also do a much more thorough job validating
+            according to RFC 3966.
+
+            Returns the untainted URI if the test value appears to be
+            well-formed.
+
+        *Arguments*
+
+            $value
+                The potential URI to test.
+
+        *Returns*
+            Returns the untainted URI on success, undef on failure.
+
+        *Notes, Exceptions, & Bugs*
+            This function does not make any attempt to check whether the URI
+            is accessible or 'makes sense' in any meaningful way. It just
+            checks that it is formatted correctly.
+
 SEE ALSO
-    URI, RFC 3986
+    URI, RFC 3986, RFC 3966, RFC 4694, RFC 4759, RFC 4904
 
 AUTHOR
     Richard Sonnen <sonnen@richardsonnen.com>.
+
+    is_tel_uri by David Dick <ddick@cpan.org>.
 
 COPYRIGHT
     Copyright (c) 2005 Richard Sonnen. All rights reserved.

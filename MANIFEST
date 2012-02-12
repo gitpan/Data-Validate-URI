@@ -7,6 +7,7 @@ lib/Data/Validate/URI.pm
 t/ExtUtils/TBone.pm
 t/is_uri.t
 t/is_http_uri.t
+t/is_tel_uri.t
 t/is_https_uri.t
 t/is_web_uri.t
 META.yml                                 Module meta-data (added by MakeMaker)

@@ -1,5 +1,8 @@
 Revision history for Perl extension Data::Validate::URI
 
+0.06  20120211
+	- Adding David Dick's is_tel_uri patch
+
 0.04  20080408
 	- Checking that hex escapes include two characters.  Thanks to Steve West.
 
